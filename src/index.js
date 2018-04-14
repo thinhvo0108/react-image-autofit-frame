@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 export default class AutofitImage extends Component {
     static propTypes = {
         keepOriginalImgSize: PropTypes.boolean,
-        imgSize: PropTypes.string,
+        imgSize: PropTypes.oneOf(this.bgSizeOptions),
         frameWidth: PropTypes.string,
         frameHeight: PropTypes.string,
-        positionX: PropTypes.string,
-        positionY: PropTypes.string,
+        positionX: PropTypes.oneOf(this.positionXOptions),
+        positionY: PropTypes.oneOf(this.positionYOptions),
         imgSrc: PropTypes.string
     };
 
@@ -21,14 +21,18 @@ export default class AutofitImage extends Component {
         positionY: 'center'
     };
 
+    static bgSizeOptions = ['cover','contain'];
+    static positionXOptions = ['left','center','right'];
+    static positionYOptions = ['top','center','bottom'];
+
     render() {
         var bgSize = this.props.imgSize;
-        if (!(['cover','contain'].indexOf(bgSize) > -1)) bgSize = 'cover';
+        if (!(this.bgSizeOptions.indexOf(bgSize) > -1)) bgSize = 'cover';
         if (this.props.keepOriginalImgSize) bgSize = 'auto';
         var positionX = this.props.positionX;
-        if (!(['left','center','right'].indexOf(positionX) > -1)) positionX = 'center';
+        if (!(this.positionXOptions.indexOf(positionX) > -1)) positionX = 'center';
         var positionY = this.props.positionY;
-        if (!(['top','center','bottom'].indexOf(positionY) > -1))  positionY = 'center';
+        if (!(this.positionYOptions.indexOf(positionY) > -1))  positionY = 'center';
         var style = {
             width: this.props.frameWidth,
             height: this.props.frameHeight,
