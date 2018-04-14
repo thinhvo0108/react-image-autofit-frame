@@ -31,12 +31,12 @@ export default class AutofitImage extends Component {
 
     render() {
         var bgSize = this.props.imgSize;
-        if (!(this.bgSizeOptions.indexOf(bgSize) > -1)) bgSize = 'cover';
+        if (!(AutofitImage.bgSizeOptions.indexOf(bgSize) > -1)) bgSize = 'cover';
         if (this.props.keepOriginalImgSize) bgSize = 'auto';
         var positionX = this.props.positionX;
-        if (!(this.positionXOptions.indexOf(positionX) > -1)) positionX = 'center';
+        if (!(AutofitImage.positionXOptions.indexOf(positionX) > -1)) positionX = 'center';
         var positionY = this.props.positionY;
-        if (!(this.positionYOptions.indexOf(positionY) > -1))  positionY = 'center';
+        if (!(AutofitImage.positionYOptions.indexOf(positionY) > -1))  positionY = 'center';
         var style = {
             width: this.props.frameWidth,
             height: this.props.frameHeight,
