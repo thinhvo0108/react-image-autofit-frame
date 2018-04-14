@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+const bgSizeOptions = ['cover','contain'];
+const positionXOptions = ['left','center','right'];
+const positionYOptions =  ['top','center','bottom'];
+
 export default class AutofitImage extends Component {
     static propTypes = {
         keepOriginalImgSize: PropTypes.boolean,
-        imgSize: PropTypes.oneOf(this.bgSizeOptions),
+        imgSize: PropTypes.oneOf(bgSizeOptions),
         frameWidth: PropTypes.string,
         frameHeight: PropTypes.string,
-        positionX: PropTypes.oneOf(this.positionXOptions),
-        positionY: PropTypes.oneOf(this.positionYOptions),
+        positionX: PropTypes.oneOf(positionXOptions),
+        positionY: PropTypes.oneOf(positionYOptions),
         imgSrc: PropTypes.string
     };
 
@@ -21,9 +25,9 @@ export default class AutofitImage extends Component {
         positionY: 'center'
     };
 
-    static bgSizeOptions = ['cover','contain'];
-    static positionXOptions = ['left','center','right'];
-    static positionYOptions = ['top','center','bottom'];
+    static bgSizeOptions = bgSizeOptions;
+    static positionXOptions = positionXOptions;
+    static positionYOptions = positionYOptions;
 
     render() {
         var bgSize = this.props.imgSize;
