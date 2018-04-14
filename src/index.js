@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 export default class AutofitImage extends Component {
     static propTypes = {
         keepOriginalImgSize: PropTypes.boolean,
+        imgSize: PropTypes.string,
         frameWidth: PropTypes.string,
         frameHeight: PropTypes.string,
         positionX: PropTypes.string,
-        positionY: PropTypes.string
+        positionY: PropTypes.string,
+        imgSrc: PropTypes.string
     };
 
     static defaultProps = {
