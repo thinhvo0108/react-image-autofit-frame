@@ -1,6 +1,24 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export default class AutofitImage extends Component {
+    static propTypes = {
+        keepOriginalImgSize: PropTypes.boolean,
+        frameWidth: PropTypes.string,
+        frameHeight: PropTypes.string,
+        positionX: PropTypes.string,
+        positionY: PropTypes.string
+    };
+
+    static defaultProps = {
+        keepOriginalImgSize: false,
+        imgSize: 'cover',
+        frameWidth: '100%',
+        frameHeight: '100%',
+        positionX: 'center',
+        positionY: 'center'
+    };
+
     render() {
         var bgSize = this.props.imgSize;
         if (!(['cover','contain'].indexOf(bgSize) > -1)) bgSize = 'cover';
@@ -19,12 +37,4 @@ export default class AutofitImage extends Component {
         }
         return <div style={style}></div>;
     }
-}
-AutofitImage.defaultProps = {
-    keepOriginalImgSize: false,
-    imgSize: 'cover',
-    frameWidth: '100%',
-    frameHeight: '100%',
-    positionX: 'center',
-    positionY: 'center'
 }
